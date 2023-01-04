@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>to do list</title>
+
+    </head>
+
+    <body>
+
+        <ul>
+            <li>use add to add new stuff</li>
+            <li> use list to see the list</li>
+            <li> use delete to delete stuff</li>
+            <li> use q for quitting</li>
+        </ul>
+
+
+        
+        <script>
+            let state;
+            let list = []
+            let add;
+            state = prompt("what do you want to do ?").toLowerCase()
+            let takeout;
+            let count = 0;
+
+            while (state !== "q") {
+                if (state === "add") {
+
+                    add = prompt("what add ?").toLowerCase()
+                    list.push(add)
+                    console.log(list)
+
+                    state = prompt("what do you want to do ?").toLowerCase()
+                }
+
+
+
+
+                else if (state === "list") {
+
+                    console.log("******************")
+
+                    if (!(list.length)) {
+                        console.log("you do not  have any item")
+                    }
+                    else {
+                        for (let item of list) {
+                            count = list.indexOf(item)
+
+                            console.log(` your item number ${count} is :${item}`)
+                            count++;
+                        }
+
+                    }
+
+                    console.log("******************")
+
+                    state = prompt("what do you want to do ?").toLowerCase()
+                }
+
+                else if (state === "delete") {
+                    console.log("******************")
+
+                    if (!(list.length)) {
+                        console.log("you do not  have any item")
+                        state = prompt("what do you want to do ?").toLowerCase()
+
+                        console.log("******************")
+                    }
+                    else {
+                        console.log("******************")
+                        console.log(` your current list has these :${list}`)
+
+                        console.log("******************")
+                        takeout = parseInt(prompt("give me the index of the item you want to delete"))
+                        list.splice(takeout, 1)
+                        console.log("******************")
+                        if (!(list.length)) {
+                            console.log("you do not  have any item")
+                            state = prompt("what do you want to do ?").toLowerCase()
+                        }
+                        else {
+                            console.log(`your list after the remove has ${list}`)
+                            state = prompt("what do you want to do ?").toLowerCase()
+                        }
+                        console.log("******************")
+
+
+                    }
+
+
+
+                }
+                else {
+                    console.log("make sure to enter valid command")
+                    state = prompt("what do you want to do ?").toLowerCase()
+                }
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            console.log("YOU QUITTED SUCSSEFULY")
+
+
+        </script>
+
+
+    </body>
+
+</html>
